@@ -3,16 +3,20 @@ name = "bundesnetzagentur-automation"
 version = "0.1.0"
 description = ""
 authors = ["Patrick Stöckle <patrick.stoeckle@posteo.de>"]
-license = "MIT"
+license = "GPL-3.0-or-later"
 readme = "README.md"
-packages = [{ include = "my_package" }]
+packages = [{ include = "bundesnetzagentur_automation" }]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
 helium = "^3.2.6"
 typer = "^0.9.0"
+jsonschema = "^4.19.2"
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+bundesnetzagentur-automation = 'bundesnetzagentur_automation:app'

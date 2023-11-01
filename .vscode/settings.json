@@ -1,0 +1,20 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "**/configuration.json"
+            ],
+            "url": "./bundesnetzagentur_automation/configuration.schema.json"
+        }
+    ],
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/__pycache__": true,
+        "**/dist/": true
+    }
+}
