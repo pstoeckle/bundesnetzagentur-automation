@@ -38,7 +38,7 @@ def report_sms_phishing(
     config = loads(configration_file.read_text())
     validate(instance=config, schema=_CONFIGURATION_SCHEMA)
     own_sms_number = (
-        config["email"] if receiver_sms_number is None else receiver_sms_number
+        config["phone"] if receiver_sms_number is None else receiver_sms_number
     )
 
     start_chrome(
