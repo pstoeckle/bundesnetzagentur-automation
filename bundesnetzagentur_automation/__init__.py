@@ -1,3 +1,6 @@
+"""
+Module to automate the interaction with the Bundesnetzagentur.
+"""
 from importlib.resources import read_text
 from json import loads
 from os import unlink
@@ -5,7 +8,7 @@ from pathlib import Path
 from re import compile as re_compile
 from typing import Optional
 
-from helium import ENTER, TAB, click, kill_browser, press, start_chrome, write
+from helium import TAB, click, kill_browser, press, start_chrome, write
 from jsonschema import validate
 from typer import Argument, Option, Typer, pause
 
@@ -38,7 +41,7 @@ def report_sms_phishing(
     config = loads(configration_file.read_text())
     validate(instance=config, schema=_CONFIGURATION_SCHEMA)
     own_sms_number = (
-        config["email"] if receiver_sms_number is None else receiver_sms_number
+        config["phone"] if receiver_sms_number is None else receiver_sms_number
     )
 
     start_chrome(
