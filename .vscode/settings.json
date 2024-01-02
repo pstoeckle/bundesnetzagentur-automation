@@ -1,4 +1,15 @@
 {
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.mypy_cache/": true,
+        "**/.svn": true,
+        "**/__pycache__": true,
+        "**/CVS": true,
+        "**/dist/": true,
+        "**/Thumbs.db": true
+    },
     "json.schemas": [
         {
             "fileMatch": [
@@ -7,14 +18,6 @@
             "url": "./bundesnetzagentur_automation/configuration.schema.json"
         }
     ],
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "**/__pycache__": true,
-        "**/dist/": true
-    }
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic"
 }
