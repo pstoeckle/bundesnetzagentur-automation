@@ -14,6 +14,12 @@ typer = "^0.9.0"
 jsonschema = "^4.19.2"
 
 
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.8.0"
+black = "^23.12.1"
+isort = "^5.13.2"
+types-jsonschema = "^4.20.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
