@@ -1,7 +1,7 @@
 """
 Module to automate the interaction with the Bundesnetzagentur.
 """
-from importlib.resources import read_text
+
 from json import loads
 from os import unlink
 from pathlib import Path
@@ -9,6 +9,7 @@ from re import compile as re_compile
 from typing import Optional
 
 from helium import TAB, click, kill_browser, press, start_chrome, write  # type: ignore
+from importlib_resources import as_file, files
 from jsonschema import validate
 from typer import Argument, Option, Typer, pause
 
@@ -18,9 +19,12 @@ _LINK = re_compile(
     r"([-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))"
 )
 
-_CONFIGURATION_SCHEMA = loads(
-    read_text("bundesnetzagentur_automation", "configuration.schema.json")
+_CONFIGURATION_SCHEMA_FILE = files("bundesnetzagentur_automation").joinpath(
+    "configuration.schema.json"
 )
+
+with as_file(_CONFIGURATION_SCHEMA_FILE) as c_file:
+    _CONFIGURATION_SCHEMA = loads(c_file.read_text())
 
 
 @app.command()
