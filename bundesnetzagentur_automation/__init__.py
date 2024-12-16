@@ -8,7 +8,7 @@ from pathlib import Path
 from re import compile as re_compile
 from typing import Optional
 
-from helium import TAB, click, kill_browser, press, start_chrome, write  # type: ignore
+from helium import ComboBox, TAB, click, kill_browser, press, start_chrome, write, select  # type: ignore
 from importlib_resources import as_file, files
 from jsonschema import validate
 from typer import Argument, Option, Typer, pause
@@ -74,6 +74,9 @@ def report_sms_phishing(
     click("Weiter")
 
     # Page 2
+    if config.get("title") is not None:
+        select(ComboBox("Titel:"), config["title"])
+
     click("Name:*")
     write(config["name"])
     click("Vorname:*")
