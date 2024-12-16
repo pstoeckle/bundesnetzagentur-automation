@@ -1,28 +1,32 @@
-[tool.poetry]
+[project]
 name = "bundesnetzagentur-automation"
 version = "0.1.0"
 description = ""
-authors = ["Patrick Stöckle <patrick.stoeckle@posteo.de>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
-packages = [{ include = "bundesnetzagentur_automation" }]
+requires-python = ">=3.11"
+dependencies = [
+    "helium == 3.2.6",
+    "importlib-resources>=6.4.5",
+    "jsonschema == 4.19.2",
+    "typer == 0.9.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-helium = "^3.2.6"
-typer = "^0.9.0"
-jsonschema = "^4.19.2"
-
-
-[tool.poetry.group.dev.dependencies]
-mypy = "^1.8.0"
-black = "^23.12.1"
-isort = "^5.13.2"
-types-jsonschema = "^4.20.0.0"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
+[project.scripts]
 bundesnetzagentur-automation = 'bundesnetzagentur_automation:app'
+
+[project.optional-dependencies]
+dev = [
+    "mypy == 1.8.0",
+    "black == 23.12.1",
+    "isort == 5.13.2",
+    "types-jsonschema == 4.20.0.0",
+]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8.3",
+]
