@@ -20,7 +20,7 @@ install-chromedriver:
 		--show-error \
 		--silent \
 		--remote-name \
-		https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.108/mac-x64/chromedriver-mac-x64.zip
+		https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.160/mac-x64/chromedriver-mac-x64.zip
 	unzip chromedriver-mac-x64.zip
 	chmod +x chromedriver-mac-x64/chromedriver
 	mv chromedriver-mac-x64/chromedriver /usr/local/bin/chromedriver
