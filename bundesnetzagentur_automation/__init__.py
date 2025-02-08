@@ -8,7 +8,16 @@ from pathlib import Path
 from re import compile as re_compile
 from typing import Optional
 
-from helium import ComboBox, TAB, click, kill_browser, press, start_chrome, write, select  # type: ignore
+from helium import (
+    ComboBox,
+    TAB,
+    click,
+    kill_browser,
+    press,
+    start_chrome,
+    write,
+    select,
+)  # type: ignore
 from importlib_resources import as_file, files
 from jsonschema import validate
 from typer import Argument, Option, Typer, pause
