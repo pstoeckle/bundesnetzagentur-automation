@@ -1,6 +1,9 @@
+.PHONY: quick-format format report-sms install-chromedriver
+
 quick-format:
 	uv run -- ruff format
 	uv run -- ruff check --fix
+
 format:
 	uv run -- black .
 	uv run -- isort --profile black .
@@ -42,3 +45,4 @@ install-chromedriver:
 	mv chromedriver-mac-x64/chromedriver /usr/local/bin/chromedriver
 	rm -rf chromedriver-mac-x64
 	rm chromedriver-mac-x64.zip
+
