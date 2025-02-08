@@ -13,14 +13,30 @@ report-sms:
 	t.txt \
 	12.12.2024
 
+CHROME_VERSION :=$(shell curl \
+	--connect-timeout 5 \
+	--fail \
+	--location \
+	--max-time 120 \
+	--proto '=https' \
+	--show-error \
+	--silent \
+	--tlsv1.2 \
+	https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json  \
+	| jq --raw-output '.["channels"]["Stable"]["version"]')
+
 install-chromedriver:
 	curl \
-		--location \
+		--connect-timeout 5 \
 		--fail \
+		--location \
+		--max-time 120 \
+		--proto '=https' \
+		--remote-name \
 		--show-error \
 		--silent \
-		--remote-name \
-		https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.160/mac-x64/chromedriver-mac-x64.zip
+		--tlsv1.2 \
+		https://storage.googleapis.com/chrome-for-testing-public/$(CHROME_VERSION)/mac-x64/chromedriver-mac-x64.zip
 	unzip chromedriver-mac-x64.zip
 	chmod +x chromedriver-mac-x64/chromedriver
 	mv chromedriver-mac-x64/chromedriver /usr/local/bin/chromedriver
