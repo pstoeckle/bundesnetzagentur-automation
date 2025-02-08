@@ -4,11 +4,13 @@
         "**/.git": true,
         "**/.hg": true,
         "**/.mypy_cache/": true,
+        "**/.ruff_cache": true,
         "**/.svn": true,
-        "**/__pycache__": true,
+        "**/.venv": true,
         "**/CVS": true,
-        "**/dist/": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "**/__pycache__": true,
+        "**/dist/": true
     },
     "json.schemas": [
         {
@@ -18,6 +20,7 @@
             "url": "./bundesnetzagentur_automation/configuration.schema.json"
         }
     ],
+    "makefile.configureOnOpen": false,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "basic"
 }
