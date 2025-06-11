@@ -1,0 +1,74 @@
+{
+    "additionalProperties": false,
+    "description": "Configuration for the Bundesnetzagentur automation.",
+    "properties": {
+        "phone": {
+            "description": "The phone number the phishing SMS was sent to.",
+            "pattern": "^\\+?[0-9]{1,3}[-\\s]?[0-9]{1,14}$",
+            "title": "Phone",
+            "type": "string"
+        },
+        "title": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "default": null,
+            "description": "The academic title of the person reporting the phishing SMS.",
+            "title": "Title"
+        },
+        "name": {
+            "description": "The last name of the person reporting the phishing SMS.",
+            "title": "Name",
+            "type": "string"
+        },
+        "firstname": {
+            "description": "The first name of the person reporting the phishing SMS.",
+            "title": "Firstname",
+            "type": "string"
+        },
+        "street": {
+            "description": "The street of the person reporting the phishing SMS.",
+            "title": "Street",
+            "type": "string"
+        },
+        "number": {
+            "description": "The house number of the person reporting the phishing SMS.",
+            "title": "Number",
+            "type": "string"
+        },
+        "zip": {
+            "description": "The postal code of the person reporting the phishing SMS.",
+            "pattern": "^\\d{5}$",
+            "title": "Zip",
+            "type": "string"
+        },
+        "city": {
+            "description": "The city of the person reporting the phishing SMS.",
+            "title": "City",
+            "type": "string"
+        },
+        "email": {
+            "description": "The email address of the person reporting the phishing SMS.",
+            "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+            "title": "Email",
+            "type": "string"
+        }
+    },
+    "required": [
+        "phone",
+        "name",
+        "firstname",
+        "street",
+        "number",
+        "zip",
+        "city",
+        "email"
+    ],
+    "title": "Configuration",
+    "type": "object"
+}
