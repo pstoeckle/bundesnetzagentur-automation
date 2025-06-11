@@ -44,20 +44,23 @@ class Configuration(BaseModel):
     title: Annotated[
         str | None,
         Field(
-            description="The academic title of the person reporting the phishing SMS.",
+            description="The academic title of the person reporting the "
+            "phishing SMS.",
             default=None,
         ),
     ]
     name: Annotated[
         str,
         Field(
-            description="The last name of the person reporting the phishing SMS."
+            description="The last name of the person reporting the "
+            "phishing SMS."
         ),
     ]
     firstname: Annotated[
         str,
         Field(
-            description="The first name of the person reporting the phishing SMS."
+            description="The first name of the person reporting the "
+            "phishing SMS."
         ),
     ]
     street: Annotated[
@@ -67,7 +70,7 @@ class Configuration(BaseModel):
         ),
     ]
     number: Annotated[
-        str,
+        str | int,
         Field(
             description="The house number of the person reporting the "
             "phishing SMS."
@@ -150,7 +153,7 @@ def report_sms_phishing(  # noqa: PLR0913
     click("Straße:*")
     write(config.street)
     click("Hausnummer:*")
-    write(config.number)
+    write(str(config.number))
     click("Postleitzahl:*")
     write(config.zip)
     click("Ort:*")
@@ -168,9 +171,6 @@ def report_sms_phishing(  # noqa: PLR0913
     kill_browser()
     if clean_up:
         text_file.unlink()
-
-
-from typer import Option
 
 
 @app.command()

@@ -37,9 +37,16 @@
             "type": "string"
         },
         "number": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "integer"
+                }
+            ],
             "description": "The house number of the person reporting the phishing SMS.",
-            "title": "Number",
-            "type": "string"
+            "title": "Number"
         },
         "zip": {
             "description": "The postal code of the person reporting the phishing SMS.",
